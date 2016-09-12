@@ -9,7 +9,7 @@ module Administrate
       if relation.columns_hash.keys.include?(attribute.to_s)
         relation.order(attribute => direction)
       else
-        relation
+        relation.sort_by {|el| el.send(attribute)}
       end
     end
 
